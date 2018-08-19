@@ -203,7 +203,7 @@ def gen_res_c():
     basename = basename.replace('\\', '/');
     basename = basename.replace('/fonts/', '/font/');
     basename = basename.replace('/images/', '/image/');
-    basename = basename.replace('/styles/', '/theme/');
+    basename = basename.replace('/styles/', '/style/');
     basename = basename.replace('./', '');
     basename = basename.replace('/', '_');
     basename = basename.replace('.data', '');

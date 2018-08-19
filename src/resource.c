@@ -5,6 +5,7 @@
 #include "res/inc/strings/zh_CN.data"
 #include "res/inc/styles/default.data"
 #include "res/inc/styles/main.data"
+#include "res/inc/styles/window1.data"
 #include "res/inc/ui/main.data"
 #include "res/inc/ui/window1.data"
 #ifdef WITH_STB_IMAGE
@@ -95,8 +96,9 @@ ret_t resource_init(void) {
   resource_manager_add(rm, image_unchecked);
   resource_manager_add(rm, strings_en_US);
   resource_manager_add(rm, strings_zh_CN);
-  resource_manager_add(rm, theme_default);
-  resource_manager_add(rm, theme_main);
+  resource_manager_add(rm, style_default);
+  resource_manager_add(rm, style_main);
+  resource_manager_add(rm, style_window1);
   resource_manager_add(rm, ui_main);
   resource_manager_add(rm, ui_window1);
 #endif
