@@ -1,0 +1,4 @@
+<window>
+    <label style="big_green" text="Hello AWTK" x="center" y="middle" w="50%" h="30"/>
+    <button name="close" text="Close" x="center" y="bottom:10" w="80%" h="30"/>
+</window>
