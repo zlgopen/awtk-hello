@@ -192,7 +192,7 @@ def gen_res_c():
   result += ''
 
   result += '#ifdef WITH_FS_RES\n'
-  result += '  resource_manager_load(rm, RESOURCE_TYPE_THEME, "default");\n'
+  result += '  resource_manager_load(rm, RESOURCE_TYPE_STYLE, "default");\n'
   result += '  resource_manager_load(rm, RESOURCE_TYPE_FONT, "default");\n'
   result += '#else\n'
 

@@ -69,7 +69,7 @@ ret_t resource_init(void) {
   resource_manager_t* rm = resource_manager();
 
 #ifdef WITH_FS_RES
-  resource_manager_load(rm, RESOURCE_TYPE_THEME, "default");
+  resource_manager_load(rm, RESOURCE_TYPE_STYLE, "default");
   resource_manager_load(rm, RESOURCE_TYPE_FONT, "default");
 #else
   resource_manager_add(rm, image_arrow_down_n);
