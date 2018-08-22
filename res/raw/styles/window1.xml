@@ -6,4 +6,10 @@
   <style name="led">
     <normal text_color="green" font_name="led" font_size="32" text_align_h="center" border_color="#a0a0a0"/>
   </style>
+  <style name="italic">
+   <normal text_color="green" font_name="italic" font_size="32" text_align_h="center" border_color="#a0a0a0"/>
+  </style>
+  <style name="bold">
+   <normal text_color="green" font_name="bold" font_size="32" text_align_h="center" border_color="#a0a0a0"/>
+  </style>
 </label>
