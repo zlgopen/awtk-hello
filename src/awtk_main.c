@@ -23,7 +23,7 @@
 #include "base/mem.h"
 #include "base/system_info.h"
 
-extern ret_t resource_init(void);
+extern ret_t assets_init(void);
 extern ret_t application_init(void);
 
 #ifdef USE_GUI_MAIN
@@ -52,7 +52,7 @@ int main(void) {
   }
 #endif /*WITH_LCD_PORTRAIT*/
 
-  resource_init();
+  assets_init();
   application_init();
 
   tk_run();
