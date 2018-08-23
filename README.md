@@ -23,6 +23,15 @@ cd awtk-hello; scons
 ./bin/hello_awtk
 ```
 
+## 预览UI文件：
+
+```
+../awtk/bin/preview_ui res/raw/ui/xxxx.xml
+```
+
+> xxxx.xml 换成实际的UI文件。
+
+
 ## 目录说明：
 
 * 1.src 源文件，每个窗口的事件处理放在独立的文件中。
