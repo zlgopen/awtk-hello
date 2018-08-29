@@ -21,6 +21,7 @@
 
 #include "awtk.h"
 #include "base/mem.h"
+#include "base/path.h"
 #include "base/system_info.h"
 
 extern ret_t assets_init(void);
@@ -32,11 +33,15 @@ int gui_app_start(int lcd_w, int lcd_h) {
 #elif defined(WIN32)
 #include <windows.h>
 int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinstance, LPSTR lpcmdline, int ncmdshow) {
-  tk_init(320, 480, APP_SIMULATOR, NULL, "./");
+  char app_root[MAX_PATH+1];
+  path_app_root(app_root);
+  tk_init(320, 480, APP_SIMULATOR, NULL, app_root);
 #elif defined(WIN32)
 #else
 int main(void) {
-  tk_init(320, 480, APP_SIMULATOR, NULL, "./");
+  char app_root[MAX_PATH+1];
+  path_app_root(app_root);
+  tk_init(320, 480, APP_SIMULATOR, NULL, app_root);
 #endif
 
 //#define WITH_LCD_PORTRAIT 1

@@ -26,3 +26,4 @@ bin/strgen*
 bin/image*
 bin/hello*
 .vscode
+.vs
