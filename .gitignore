@@ -10,7 +10,6 @@
 .sconsign.dblite
 lua/demo1
 lua/lftk_run
-lib
 tags
 bin/demo1*
 bin/demo_animator*
