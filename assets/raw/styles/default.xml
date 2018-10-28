@@ -138,31 +138,23 @@
 
 <check_button bg_color="#f0f0f0" text_color="black">
   <style name="default">
-    <checked   icon="checked" />
-    <unchecked icon="unchecked" />
-  </style>
-  <style name="odd_icon_right" text_color="black" margin="4">
-    <checked   bg_color="#f5f5f5" icon_at="right" icon="check" />
-    <unchecked bg_color="#f5f5f5" icon_at="right" />
-  </style>
-  <style name="even_icon_right" text_color="black" margin="4">
-    <checked   bg_color="#eaeaea" icon_at="right" icon="check" />
-    <unchecked bg_color="#eaeaea" icon_at="right" />
+    <normal  icon="unchecked" />
+    <pressed icon="unchecked" />
+    <over    icon="unchecked" text_color="green"/>
+    <normal_of_checked icon="checked" text_color="blue"/>
+    <pressed_of_checked icon="checked" text_color="blue"/>
+    <over_of_checked icon="checked" text_color="green"/>
   </style>
 </check_button>
 
 <radio_button>
   <style name="default" bg_color="#f0f0f0" text_color="black">
-    <checked   icon="radio_checked" />
-    <unchecked icon="radio_unchecked" />
-  </style>
-  <style name="odd_icon_right" text_color="black" margin="4">
-    <checked   bg_color="#f5f5f5" icon_at="right" icon="check" />
-    <unchecked bg_color="#f5f5f5" icon_at="right" />
-  </style>
-  <style name="even_icon_right" text_color="black" margin="4">
-    <checked   bg_color="#eaeaea" icon_at="right" icon="check" />
-    <unchecked bg_color="#eaeaea" icon_at="right" />
+    <normal  icon="radio_unchecked" />
+    <pressed icon="radio_unchecked" />
+    <over    icon="radio_unchecked" text_color="green"/>
+    <normal_of_checked icon="radio_checked" text_color="red"/>
+    <pressed_of_checked icon="radio_checked" text_color="red"/>
+    <over_of_checked icon="radio_checked" text_color="green"/>
   </style>
 </radio_button>
 
@@ -260,13 +252,12 @@
     <normal     bg_color="#d0d0d0" />
     <pressed    bg_color="#f0f0f0" />
     <over       bg_color="#e0e0e0" />
-  </style>
-  <style name="default_active" border_color="#a0a0a0"  text_color="black">
-    <normal     bg_color="#f0f0f0" />
-    <pressed    bg_color="#f0f0f0" />
-    <over       bg_color="#f0f0f0" />
+    <normal_of_active     bg_color="#f0f0f0" />
+    <pressed_of_active    bg_color="#f0f0f0" />
+    <over_of_active       bg_color="#f0f0f0" />
   </style>
 </tab_button>
+
 
 <tab_button_group>
   <style name="default">
@@ -284,16 +275,14 @@
   </style>
 </combo_box>
 
+
 <combo_box_item>
-  <style name="default" icon_at="left" text_color="black" bg_color="#f0f0f0" icon="empty">
-    <normal  />
-    <pressed bg_color="#1296db" text_color="white" />
-    <over    bg_color="#1296db" text_color="white" />
-  </style>
-  <style name="default_selected" icon_at="left" text_color="black" bg_color="#f0f0f0" icon="check">
-    <normal  />
-    <pressed bg_color="#1296db" text_color="white" />
-    <over    bg_color="#1296db" text_color="white" />
+  <style name="default" icon_at="left" text_color="black" bg_color="#f0f0f0">
+    <normal  icon="empty"/>
+    <pressed icon="empty" bg_color="#1296db" text_color="white" />
+    <over    icon="empty" bg_color="#1296db" text_color="white" />
+    <normal_of_checked  icon="check"/>
+    <pressed_of_checked icon="check" bg_color="#1296db" text_color="white" />
+    <over_of_checked    icon="check" bg_color="#1296db" text_color="white" />
   </style>
 </combo_box_item>
-

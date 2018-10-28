@@ -1,8 +1,6 @@
 #include "awtk.h"
 #include "base/assets_manager.h"
 #ifndef WITH_FS_RES
-#include "assets/inc/strings/zh_CN.data"
-#include "assets/inc/strings/en_US.data"
 #include "assets/inc/styles/main.data"
 #include "assets/inc/styles/default.data"
 #include "assets/inc/styles/window1.data"
@@ -74,8 +72,6 @@ ret_t assets_init(void) {
 #else
   assets_manager_add(rm, ui_main);
   assets_manager_add(rm, ui_window1);
-  assets_manager_add(rm, strings_zh_CN);
-  assets_manager_add(rm, strings_en_US);
   assets_manager_add(rm, image_arrow_right_o);
   assets_manager_add(rm, image_earth);
   assets_manager_add(rm, image_arrow_up_p);
