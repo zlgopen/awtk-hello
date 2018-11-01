@@ -1,10 +1,10 @@
 #!/usr/bin/python
 
 import os
+import copy
 import glob
 import shutil
 import platform
-import copy
 
 def joinPath(root, subdir):
   return os.path.normpath(os.path.join(root, subdir))
@@ -14,8 +14,10 @@ IMAGEGEN_OPTIONS='bgra+bgr565'
 
 CWD=os.getcwd()
 APP_DIR=os.getcwd()
+
 AWTK_ROOT=joinPath(CWD, '../awtk');
 BIN_DIR=joinPath(AWTK_ROOT, 'bin')
+
 INPUT_DIR=joinPath(APP_DIR, 'assets/raw')
 OUTPUT_DIR=joinPath(APP_DIR, 'assets/inc')
 ASSET_C=joinPath(APP_DIR, 'src/assets.c')
@@ -44,41 +46,38 @@ def prepare():
   os.makedirs(joinPath(OUTPUT_DIR, 'strings'));
   os.makedirs(joinPath(OUTPUT_DIR, 'ui'));
 
-def themegen(raw, inc):
-  print(toExe('themegen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(OUTPUT_DIR, inc))
-  os.system(toExe('themegen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(OUTPUT_DIR, inc))
+def execCmd(cmd):
+  print(cmd)
+  os.system(cmd)
 
+def themegen(raw, inc):
+  execCmd(toExe('themegen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(OUTPUT_DIR, inc))
+  
 def themegen_bin(raw, bin):
-  print(toExe('themegen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(INPUT_DIR, bin) + ' bin')
-  os.system(toExe('themegen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(INPUT_DIR, bin) + ' bin')
+  execCmd(toExe('themegen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(INPUT_DIR, bin) + ' bin')
 
 def strgen(raw, inc):
-  print(toExe('strgen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(OUTPUT_DIR, inc))
-  os.system(toExe('strgen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(OUTPUT_DIR, inc))
+  execCmd(toExe('strgen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(OUTPUT_DIR, inc))
 
 def strgen_bin(raw, bin):
-  print(toExe('strgen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(INPUT_DIR, bin) + ' bin')
-  os.system(toExe('strgen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(INPUT_DIR, bin) + ' bin')
+  execCmd(toExe('strgen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(INPUT_DIR, bin) + ' bin')
 
 def resgen(raw, inc):
-  print(joinPath(INPUT_DIR, raw) + ' => ' + joinPath(OUTPUT_DIR, inc))
-  os.system(toExe('resgen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(OUTPUT_DIR, inc))
+  execCmd(toExe('resgen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(OUTPUT_DIR, inc))
 
 def fontgen(raw, text, inc, size):
-  os.system(toExe('fontgen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(INPUT_DIR, text) +' ' + joinPath(OUTPUT_DIR, inc) + ' ' + str(size))
+  execCmd(toExe('fontgen') + ' ' + joinPath(INPUT_DIR, raw) + ' ' + joinPath(INPUT_DIR, text) +' ' + joinPath(OUTPUT_DIR, inc) + ' ' + str(size))
 
 def imagegen(raw, inc):
-  imagegen_exe=toExe('imagegen') + ' ' + raw + ' ' + inc + ' ' + IMAGEGEN_OPTIONS;
-  print(imagegen_exe);
-  os.system(imagegen_exe)
+  execCmd(toExe('imagegen') + ' ' + raw + ' ' + inc + ' ' + IMAGEGEN_OPTIONS)
   inc=inc.replace('.data', '.res')
   resgen(raw, inc)
 
 def xml_to_ui(raw, inc):
-  os.system(toExe('xml_to_ui') + ' ' + raw + ' ' + inc)
+  execCmd(toExe('xml_to_ui') + ' ' + raw + ' ' + inc)
 
 def xml_to_ui_bin(raw, bin):
-  os.system(toExe('xml_to_ui') + ' ' + raw + ' ' + bin + ' bin')
+  execCmd(toExe('xml_to_ui') + ' ' + raw + ' ' + bin + ' bin')
 
 def gen_all_style():
   for f in glob.glob(joinPath(INPUT_DIR, 'styles/*.xml')):
@@ -90,7 +89,6 @@ def gen_all_style():
     themegen(raw, inc)
     bin=bin.replace('.xml', '.bin')
     themegen_bin(raw, bin)
-
 
 def gen_all_image(): 
   for f in glob.glob(joinPath(INPUT_DIR, 'images/'+DPI+'/*.*')):
@@ -128,9 +126,9 @@ def gen_all_string():
   strgen_bin('strings/strings.xml', 'strings');
 
 def gen_gpinyin():
-  os.system(toExe('resgen') + ' ' +joinPath('3rd', 'gpinyin/data/gpinyin.dat') + ' ' + joinPath('3rd', 'gpinyin/src/gpinyin.inc'))
-  os.system(toExe('resgen') + ' ' +joinPath('tools', 'word_gen/words.bin') + ' ' + joinPath('src', 'input_methods/suggest_words.inc'))
-  os.system(toExe('resgen') + ' ' +joinPath('tools', 'word_gen/words.bin') + ' ' + joinPath('tests', 'suggest_test.inc'))
+  execCmd(toExe('resgen') + ' ' +joinPath('3rd', 'gpinyin/data/gpinyin.dat') + ' ' + joinPath('3rd', 'gpinyin/src/gpinyin.inc'))
+  execCmd(toExe('resgen') + ' ' +joinPath('tools', 'word_gen/words.bin') + ' ' + joinPath('src', 'input_methods/suggest_words.inc'))
+  execCmd(toExe('resgen') + ' ' +joinPath('tools', 'word_gen/words.bin') + ' ' + joinPath('tests', 'suggest_test.inc'))
 
 def gen_all():
   gen_all_string()
