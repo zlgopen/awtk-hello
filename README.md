@@ -51,7 +51,7 @@ cd awtk-hello; scons
 更新资源后请运行:
 
 ```
-./update_res.py
+./scripts/update_res.py all
 ```
 
 > 本文以Linux/MacOS为例，Windows可能会微妙差异，请酌情处理。
