@@ -23,6 +23,7 @@
 #include "base/mem.h"
 #include "base/path.h"
 #include "base/system_info.h"
+#include "ext_widgets/ext_widgets.h"
 
 extern ret_t assets_init(void);
 extern ret_t application_init(void);
@@ -56,6 +57,8 @@ int main(void) {
     tk_set_lcd_orientation(LCD_ORIENTATION_90);
   }
 #endif /*WITH_LCD_PORTRAIT*/
+
+  tk_ext_widgets_init();
 
   assets_init();
   application_init();
