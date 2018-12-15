@@ -20,8 +20,6 @@
  */
 
 #include "window1.h"
-#include "base/label.h"
-#include "base/window.h"
 
 static ret_t on_close_window(void* ctx, event_t* e) {
   window_close(WIDGET(ctx));

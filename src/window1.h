@@ -22,7 +22,7 @@
 #ifndef WINDOW1_H
 #define WINDOW1_H
 
-#include "base/types_def.h"
+#include "awtk.h"
 
 BEGIN_C_DECLS
 

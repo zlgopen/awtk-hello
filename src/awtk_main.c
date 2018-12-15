@@ -20,10 +20,6 @@
  */
 
 #include "awtk.h"
-#include "base/mem.h"
-#include "base/path.h"
-#include "base/system_info.h"
-#include "ext_widgets/ext_widgets.h"
 
 extern ret_t assets_init(void);
 extern ret_t application_init(void);

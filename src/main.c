@@ -20,8 +20,6 @@
  */
 
 #include "awtk.h"
-#include "base/label.h"
-#include "base/window.h"
 #include "window1.h"
 
 static ret_t on_open_window(void* ctx, event_t* e) {

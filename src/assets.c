@@ -55,6 +55,8 @@
 #include "assets/inc/images/arrow_left_n.data"
 #include "assets/inc/images/edit_clear_p.data"
 #endif/*WITH_STB_IMAGE*/
+#ifdef WITH_VGCANVAS
+#endif/*WITH_VGCANVAS*/
 #ifdef WITH_STB_FONT
 #ifdef WITH_MINI_FONT
 #include "assets/inc/fonts/default.mini.res"
@@ -101,6 +103,8 @@ ret_t assets_init(void) {
   assets_manager_add(rm, style_main);
   assets_manager_add(rm, style_default);
   assets_manager_add(rm, style_window1);
+#ifdef WITH_VGCANVAS
+#endif/*WITH_VGCANVAS*/
 #endif
 
   tk_init_assets();
