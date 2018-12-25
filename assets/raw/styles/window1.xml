@@ -4,7 +4,7 @@
     <normal text_color="green" font_size="24" text_align_h="center" border_color="#a0a0a0"/>
   </style>
   <style name="led">
-    <normal text_color="green" font_name="led" font_size="32" text_align_h="center" border_color="#a0a0a0"/>
+    <normal text_color="green" font_name="mono" font_size="18" text_align_h="center" border_color="#a0a0a0"/>
   </style>
   <style name="italic">
    <normal text_color="green" font_name="italic" font_size="32" text_align_h="center" border_color="#a0a0a0"/>
