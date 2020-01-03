@@ -21,9 +21,15 @@
 
 #include "awtk.h"
 #include "window1.h"
+#include "settings.h"
 
 static ret_t on_open_window(void* ctx, event_t* e) {
-  window1_open();
+  const char* name = (const char*)ctx;
+  if(tk_str_eq(name, "settings")) {
+    settings_open();
+  } else if(tk_str_eq(name, "window1")) {
+    window1_open();
+  }
 
   return RET_OK;
 }
@@ -31,7 +37,8 @@ static ret_t on_open_window(void* ctx, event_t* e) {
 ret_t application_init() {
   widget_t* win = window_open("main");
 
-  widget_child_on(win, "window1", EVT_CLICK, on_open_window, NULL);
+  widget_child_on(win, "settings", EVT_CLICK, on_open_window, "settings");
+  widget_child_on(win, "window1", EVT_CLICK, on_open_window, "window1");
 
   return RET_OK;
 }

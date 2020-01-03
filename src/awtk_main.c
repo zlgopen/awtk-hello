@@ -41,21 +41,9 @@ int main(void) {
   tk_init(320, 480, APP_SIMULATOR, NULL, app_root);
 #endif
 
-//#define WITH_LCD_PORTRAIT 1
-#if defined(USE_GUI_MAIN) && defined(WITH_LCD_PORTRAIT)
-  if (lcd_w > lcd_h) {
-    tk_set_lcd_orientation(LCD_ORIENTATION_90);
-  }
-#endif /*WITH_LCD_PORTRAIT*/
-
-#ifdef WITH_LCD_LANDSCAPE
-  if (lcd_w < lcd_h) {
-    tk_set_lcd_orientation(LCD_ORIENTATION_90);
-  }
-#endif /*WITH_LCD_PORTRAIT*/
+  TK_ENABLE_CONSOLE();
 
   tk_ext_widgets_init();
-
   assets_init();
   application_init();
 
