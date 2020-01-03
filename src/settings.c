@@ -37,9 +37,8 @@ static ret_t on_change_locale(void* ctx, event_t* e) {
   tk_strncpy(country, locale + 3, 2);
   locale_info_change(locale_info(), language, country);
 
-  /*If use different font for each language*/
   if(tk_str_eq(locale, "zh_TW")) {
-    system_info_set_default_font(system_info(), locale);
+    system_info_set_default_font(system_info(), "zh_TW");
   } else {
     system_info_set_default_font(system_info(), "default");
   }
