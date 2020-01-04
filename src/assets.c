@@ -2,6 +2,7 @@
 #include "base/assets_manager.h"
 #ifndef WITH_FS_RES
 #include "assets/default/inc/strings/en_US.data"
+#include "assets/default/inc/strings/ko_KR.data"
 #include "assets/default/inc/strings/zh_CN.data"
 #include "assets/default/inc/strings/zh_TW.data"
 #include "assets/default/inc/styles/default.data"
@@ -79,14 +80,14 @@
 #include "assets/default/inc/images/switch.data"
 #include "assets/default/inc/images/unchecked.data"
 #include "assets/default/inc/images/zh.data"
-#endif/*WITH_STB_IMAGE*/
+#endif /*WITH_STB_IMAGE*/
 #ifdef WITH_VGCANVAS
-#endif/*WITH_VGCANVAS*/
+#endif /*WITH_VGCANVAS*/
 #if defined(WITH_TRUETYPE_FONT)
 #include "assets/default/inc/fonts/default.res"
-#else/*WITH_TRUETYPE_FONT*/
-#endif/*WITH_TRUETYPE_FONT*/
-#endif/*WITH_FS_RES*/
+#else  /*WITH_TRUETYPE_FONT*/
+#endif /*WITH_TRUETYPE_FONT*/
+#endif /*WITH_FS_RES*/
 
 ret_t assets_init(void) {
   assets_manager_t* am = assets_manager();
@@ -125,6 +126,7 @@ ret_t assets_init(void) {
   assets_manager_add(am, image_unchecked);
   assets_manager_add(am, image_zh);
   assets_manager_add(am, strings_en_US);
+  assets_manager_add(am, strings_ko_KR);
   assets_manager_add(am, strings_zh_CN);
   assets_manager_add(am, strings_zh_TW);
   assets_manager_add(am, style_default);
@@ -143,7 +145,7 @@ ret_t assets_init(void) {
   assets_manager_add(am, ui_settings);
   assets_manager_add(am, ui_window1);
 #ifdef WITH_VGCANVAS
-#endif/*WITH_VGCANVAS*/
+#endif /*WITH_VGCANVAS*/
 #endif
 
   tk_init_assets();

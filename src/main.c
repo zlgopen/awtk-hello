@@ -25,9 +25,9 @@
 
 static ret_t on_open_window(void* ctx, event_t* e) {
   const char* name = (const char*)ctx;
-  if(tk_str_eq(name, "settings")) {
+  if (tk_str_eq(name, "settings")) {
     settings_open();
-  } else if(tk_str_eq(name, "window1")) {
+  } else if (tk_str_eq(name, "window1")) {
     window1_open();
   }
 
@@ -42,5 +42,3 @@ ret_t application_init() {
 
   return RET_OK;
 }
-
-

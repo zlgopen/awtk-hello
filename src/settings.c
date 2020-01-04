@@ -37,8 +37,10 @@ static ret_t on_change_locale(void* ctx, event_t* e) {
   tk_strncpy(country, locale + 3, 2);
   locale_info_change(locale_info(), language, country);
 
-  if(tk_str_eq(locale, "zh_TW")) {
+  if (tk_str_eq(locale, "zh_TW")) {
     system_info_set_default_font(system_info(), "zh_TW");
+  } else if (tk_str_eq(locale, "ko_KR")) {
+    system_info_set_default_font(system_info(), "ko_KR");
   } else {
     system_info_set_default_font(system_info(), "default");
   }
@@ -49,12 +51,11 @@ static ret_t on_change_locale(void* ctx, event_t* e) {
 ret_t settings_open(void) {
   widget_t* win = window_open("settings");
 
-  widget_child_on(win, "close", EVT_CLICK, on_close_window, win); 
-  widget_child_on(win, "en_US", EVT_CLICK, on_change_locale, win); 
-  widget_child_on(win, "zh_CN", EVT_CLICK, on_change_locale, win); 
-  widget_child_on(win, "zh_TW", EVT_CLICK, on_change_locale, win); 
+  widget_child_on(win, "close", EVT_CLICK, on_close_window, win);
+  widget_child_on(win, "en_US", EVT_CLICK, on_change_locale, win);
+  widget_child_on(win, "zh_CN", EVT_CLICK, on_change_locale, win);
+  widget_child_on(win, "zh_TW", EVT_CLICK, on_change_locale, win);
+  widget_child_on(win, "ko_KR", EVT_CLICK, on_change_locale, win);
 
   return RET_OK;
 }
-
-

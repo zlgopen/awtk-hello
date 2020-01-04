@@ -30,9 +30,7 @@ static ret_t on_close_window(void* ctx, event_t* e) {
 ret_t window1_open(void) {
   widget_t* win = window_open("window1");
 
-  widget_child_on(win, "close", EVT_CLICK, on_close_window, win); 
+  widget_child_on(win, "close", EVT_CLICK, on_close_window, win);
 
   return RET_OK;
 }
-
-
