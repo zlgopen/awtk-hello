@@ -22,6 +22,7 @@
 #include "awtk.h"
 #include "window1.h"
 #include "settings.h"
+#include "sqlite3.h"
 
 static ret_t on_open_window(void* ctx, event_t* e) {
   const char* name = (const char*)ctx;
@@ -39,6 +40,7 @@ ret_t application_init() {
 
   widget_child_on(win, "settings", EVT_CLICK, on_open_window, "settings");
   widget_child_on(win, "window1", EVT_CLICK, on_open_window, "window1");
+  log_debug("%s\n", sqlite3_libversion());
 
   return RET_OK;
 }

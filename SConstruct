@@ -14,17 +14,19 @@ os.environ['BIN_DIR'] = APP_BIN_DIR;
 os.environ['LIB_DIR'] = APP_LIB_DIR;
 
 APP_CCFLAGS = ''
-APP_LIBS = ['assets']
+APP_LINKFLAGS=''
 APP_LIBPATH = [APP_LIB_DIR]
+APP_LIBS = ['assets', 'sqlite3']
+APP_CPPPATH=[os.path.join(APP_ROOT, '3rd/sqlite3')]
 
 DefaultEnvironment(
-  CPPPATH   = awtk.CPPPATH,
-  LINKFLAGS = awtk.LINKFLAGS,
+  LINKFLAGS = APP_LINKFLAGS + awtk.LINKFLAGS,
+  CPPPATH   = APP_CPPPATH + awtk.CPPPATH,
   LIBS      = APP_LIBS + awtk.LIBS,
   LIBPATH   = APP_LIBPATH + awtk.LIBPATH,
   CCFLAGS   = APP_CCFLAGS + awtk.CCFLAGS, 
   OS_SUBSYSTEM_CONSOLE=awtk.OS_SUBSYSTEM_CONSOLE,
   OS_SUBSYSTEM_WINDOWS=awtk.OS_SUBSYSTEM_WINDOWS)
 
-SConscript(['src/SConscript'])
+SConscript(['3rd/sqlite3/SConscript', 'src/SConscript'])
 
