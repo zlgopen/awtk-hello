@@ -1,6 +1,0 @@
-{
-  "name":"hello",
-  "version":"1.0",
-  "assets" : "assets",
-  "sources":["src/main.c", "src/window1.c"]
-}

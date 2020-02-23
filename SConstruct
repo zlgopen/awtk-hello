@@ -17,7 +17,7 @@ APP_CCFLAGS = ''
 APP_LINKFLAGS=''
 APP_LIBPATH = [APP_LIB_DIR]
 APP_LIBS = ['assets', 'sqlite3']
-APP_CPPPATH=[os.path.join(APP_ROOT, '3rd/sqlite3')]
+APP_CPPPATH=[os.path.join(APP_ROOT, '3rd')]
 
 DefaultEnvironment(
   LINKFLAGS = APP_LINKFLAGS + awtk.LINKFLAGS,

@@ -22,7 +22,7 @@
 #include "awtk.h"
 #include "window1.h"
 #include "settings.h"
-#include "sqlite3.h"
+#include "sqlite3/sqlite3.h"
 
 static ret_t on_open_window(void* ctx, event_t* e) {
   const char* name = (const char*)ctx;
