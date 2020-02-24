@@ -44,3 +44,10 @@ ret_t application_init() {
 
   return RET_OK;
 }
+
+ret_t application_exit() {
+  return RET_OK;
+}
+
+#include "awtk_main.inc"
+

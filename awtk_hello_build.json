@@ -1,16 +1,14 @@
 {
-  "name":"demoui",
+  "name":"hello",
   "version":"1.0",
   "assets" : "assets",
-  "sources":["src/*.c", "src/*.h", "3rd/sqlite3/sqlite3.c", "3rd/sqlite3/sqlite3.h"],
+  "includes" : ["3rd/sqlite3"],
   "web": {
     "app_type":"c",
-    "config" : {
-      "fontScale":"0.8",
-      "defaultFont":"sans"
-    }
+    "sources":["src/*.c", "src/*.h"]
   },
   "android" : {
-    "app_name":"org.zlgopen.hello"
+    "app_name":"org.zlgopen.hello",
+    "sources":["src/*.c", "src/*.h", "3rd/sqlite3/sqlite3.c", "3rd/sqlite3/sqlite3.h"]
   }
 }
