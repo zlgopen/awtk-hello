@@ -22,7 +22,10 @@
 #include "awtk.h"
 #include "window1.h"
 #include "settings.h"
+
+#ifndef AWTK_WEB
 #include "sqlite3/sqlite3.h"
+#endif/*AWTK_WEB*/
 
 static ret_t on_open_window(void* ctx, event_t* e) {
   const char* name = (const char*)ctx;
@@ -40,7 +43,10 @@ ret_t application_init() {
 
   widget_child_on(win, "settings", EVT_CLICK, on_open_window, "settings");
   widget_child_on(win, "window1", EVT_CLICK, on_open_window, "window1");
+
+#ifndef AWTK_WEB
   log_debug("%s\n", sqlite3_libversion());
+#endif/*AWTK_WEB*/
 
   return RET_OK;
 }
