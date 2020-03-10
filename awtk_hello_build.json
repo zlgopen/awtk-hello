@@ -2,7 +2,7 @@
   "name":"hello",
   "version":"1.0",
   "assets" : "assets",
-  "includes" : ["3rd/sqlite3"],
+  "includes" : ["3rd/sqlite3", ".", "src"],
   "web": {
     "app_type":"c",
     "sources":["src/*.c", "src/*.h"]
