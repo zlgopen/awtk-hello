@@ -20,7 +20,7 @@ APP_LIBPATH = [APP_LIB_DIR]
 APP_LIBS = ['assets', 'sqlite3']
 APP_CPPPATH=[os.path.join(APP_ROOT, '3rd')]
 
-if awtk.has_custom_cc():
+if hasattr(awtk, 'CC'):
   DefaultEnvironment(
     CC=awtk.CC,
     CXX=awtk.CXX,
