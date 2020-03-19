@@ -17,7 +17,7 @@ os.environ['LIB_DIR'] = APP_LIB_DIR;
 APP_CCFLAGS = ''
 APP_LINKFLAGS=''
 APP_LIBPATH = [APP_LIB_DIR]
-APP_LIBS = ['assets', 'sqlite3']
+APP_LIBS = ['sqlite3']
 APP_CPPPATH=[os.path.join(APP_ROOT, '3rd')]
 
 if hasattr(awtk, 'CC'):
