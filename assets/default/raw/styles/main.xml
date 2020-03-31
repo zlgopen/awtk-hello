@@ -1,8 +1,26 @@
 <button>
-  <style name="icon" icon="earth" border_color="#a0a0a0"  text_color="black">
-    <normal     bg_color="#f0f0f0" />
-    <pressed    bg_color="#c0c0c0" />
-    <over       bg_color="#e0e0e0" />
-    <disable    bg_color="gray" text_color="#d0d0d0" />
+  <style name="settings" border_color="#a0a0a0"  text_color="black">
+    <normal     bg_color="#f0f0f0" icon="settings"/>
+    <pressed    bg_color="#c0c0c0" icon="settings"/>
+    <over       bg_color="#e0e0e0" icon="settings"/>
+    <focused    bg_color="gray" icon="settings_focused" />
+  </style>
+  <style name="vpn" border_color="#a0a0a0"  text_color="black">
+    <normal     bg_color="#f0f0f0" icon="vpn"/>
+    <pressed    bg_color="#c0c0c0" icon="vpn"/>
+    <over       bg_color="#e0e0e0" icon="vpn"/>
+    <focused    bg_color="gray" icon="vpn_focused" />
+  </style>
+  <style name="dns" border_color="#a0a0a0"  text_color="black">
+    <normal     bg_color="#f0f0f0" icon="dns"/>
+    <pressed    bg_color="#c0c0c0" icon="dns"/>
+    <over       bg_color="#e0e0e0" icon="dns"/>
+    <focused    bg_color="gray" icon="dns_focused" />
+  </style>
+  <style name="ip" border_color="#a0a0a0"  text_color="black">
+    <normal     bg_color="#f0f0f0" icon="ip"/>
+    <pressed    bg_color="#c0c0c0" icon="ip"/>
+    <over       bg_color="#e0e0e0" icon="ip"/>
+    <focused    bg_color="gray" icon="ip_focused" />
   </style>
 </button>

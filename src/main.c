@@ -42,7 +42,9 @@ ret_t application_init() {
   widget_t* win = window_open("main");
 
   widget_child_on(win, "settings", EVT_CLICK, on_open_window, "settings");
-  widget_child_on(win, "window1", EVT_CLICK, on_open_window, "window1");
+  widget_child_on(win, "vpn", EVT_CLICK, on_open_window, "window1");
+  widget_child_on(win, "dns", EVT_CLICK, on_open_window, "window1");
+  widget_child_on(win, "ip", EVT_CLICK, on_open_window, "window1");
 
 #ifndef AWTK_WEB
   log_debug("%s\n", sqlite3_libversion());

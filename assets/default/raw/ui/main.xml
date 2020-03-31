@@ -1,5 +1,8 @@
-<window theme="main">
-    <edit text="hello awtk" x="center" y="middle:-100" w="80%" h="30" input_type="text"/>
-    <button style="icon" name="settings" text="Open Settings" x="center" y="middle" w="50%" h="30"/>
-    <button style="icon" name="window1" text="Open Window1" x="center" y="middle:50" w="50%" h="30"/>
+<window theme="main" >
+  <view x="c" y="m" w="240" h="240" children_layout="default(r=2,c=2,s=10,m=10)">
+    <button style="settings" name="settings" focusable="true" focused="true"/>
+    <button style="dns" name="dns" focusable="true"/>
+    <button style="vpn" name="vpn" focusable="true"/>
+    <button style="ip" name="ip" focusable="true"/>
+  </view>
 </window>
