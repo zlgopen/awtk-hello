@@ -25,7 +25,54 @@
 
 #ifndef AWTK_WEB
 #include "sqlite3/sqlite3.h"
-#endif/*AWTK_WEB*/
+#endif /*AWTK_WEB*/
+
+static const char* build_user_storage_file_name(char filename[MAX_PATH + 1], const char* appname,
+                                                const char* name) {
+  char home[MAX_PATH + 1];
+  char path[MAX_PATH + 1];
+
+  fs_get_user_storage_path(os_fs(), home);
+  path_build(path, MAX_PATH, home, appname, NULL);
+
+  if (!path_exist(path)) {
+    fs_create_dir(os_fs(), path);
+  }
+  path_build(filename, MAX_PATH, path, name, NULL);
+
+  return filename;
+}
+
+static ret_t copy_asset_to_file(const char* name, const char* filename) {
+  assets_manager_t* am = assets_manager();
+  const asset_info_t* info = assets_manager_ref(am, ASSET_TYPE_DATA, name);
+
+  if (info != NULL) {
+    file_write(filename, info->data, info->size);
+    assets_manager_unref(am, info);
+
+    log_info("copy %s to %s\n", name, filename);
+  } else {
+    log_warn("asset %s not exist\n", name);
+  }
+
+  return RET_OK;
+}
+
+static ret_t prepare_database_file(void) {
+  char db_file[MAX_PATH + 1];
+
+  /*to build filename that is writable for app*/
+  build_user_storage_file_name(db_file, "awtk_hello", "awtk.db");
+
+  if (!file_exist(db_file)) {
+    copy_asset_to_file("awtk.db", db_file);
+  } else {
+    log_info("database %s exist\n", db_file);
+  }
+
+  return RET_OK;
+}
 
 static ret_t on_open_window(void* ctx, event_t* e) {
   const char* name = (const char*)ctx;
@@ -34,6 +81,22 @@ static ret_t on_open_window(void* ctx, event_t* e) {
   } else if (tk_str_eq(name, "window1")) {
     window1_open();
   }
+
+  return RET_OK;
+}
+
+static ret_t sqlite_demo(void) {
+  int rc = 0;
+  sqlite3* db = NULL;
+  prepare_database_file();
+
+  rc = sqlite3_open("test.db", &db);
+  if (rc) {
+    log_warn("Can't open database: %s\n", sqlite3_errmsg(db));
+  } else {
+    log_warn("Opened database successfully\n");
+  }
+  sqlite3_close(db);
 
   return RET_OK;
 }
@@ -47,8 +110,8 @@ ret_t application_init() {
   widget_child_on(win, "ip", EVT_CLICK, on_open_window, "window1");
 
 #ifndef AWTK_WEB
-  log_debug("%s\n", sqlite3_libversion());
-#endif/*AWTK_WEB*/
+  sqlite_demo();
+#endif /*AWTK_WEB*/
 
   return RET_OK;
 }
@@ -58,4 +121,3 @@ ret_t application_exit() {
 }
 
 #include "awtk_main.inc"
-

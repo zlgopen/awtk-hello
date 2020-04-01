@@ -110,7 +110,7 @@
 #include "assets/default/inc/fonts/mono.res"
 #include "assets/default/inc/fonts/light.res"
 #include "assets/default/inc/fonts/led.res"
-#else/*WITH_STB_FONT or WITH_FT_FONT*/
+#else  /*WITH_STB_FONT or WITH_FT_FONT*/
 #endif /*WITH_STB_FONT or WITH_FT_FONT*/
 #endif /*WITH_FS_RES*/
 
@@ -188,7 +188,7 @@ ret_t assets_init_default(void) {
   assets_manager_add(am, font_mono);
   assets_manager_add(am, font_light);
   assets_manager_add(am, font_led);
-#else /*WITH_STB_FONT or WITH_FT_FONT*/
+#else  /*WITH_STB_FONT or WITH_FT_FONT*/
 #endif /*WITH_STB_FONT or WITH_FT_FONT*/
 #ifdef WITH_VGCANVAS
 #endif /*WITH_VGCANVAS*/
