@@ -83,9 +83,23 @@ static ret_t on_open_window(void* ctx, event_t* e) {
   return RET_OK;
 }
 
+static int dump_table(void* data, int argc, char** argv, char** azColName) {
+  int i;
+  log_info("%s: ", (const char*)data);
+
+  for (i = 0; i < argc; i++) {
+    log_info("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+  }
+
+  log_info("\n");
+  return 0;
+}
+
+
 static ret_t sqlite_demo(void) {
   int rc = 0;
   sqlite3* db = NULL;
+  char* zErrMsg = NULL;
   char db_filename[MAX_PATH + 1];
 
   return_value_if_fail(prepare_database_file(db_filename, "awtk_hello", "awtk.db") == RET_OK, RET_FAIL);
@@ -94,6 +108,15 @@ static ret_t sqlite_demo(void) {
   if (rc) {
     log_warn("Can't open database: %s\n", sqlite3_errmsg(db));
   } else {
+    const char* sql = "SELECT * from COMPANY";
+    rc = sqlite3_exec(db, sql, dump_table, (void*)"dump", &zErrMsg);
+
+    if (rc != SQLITE_OK) {
+      log_info("SQL error: %s\n", zErrMsg);
+      sqlite3_free(zErrMsg);
+    } else {
+      log_info("Operation done successfully\n");
+    }
     log_warn("Opened database successfully:%s\n", db_filename);
   }
   sqlite3_close(db);
