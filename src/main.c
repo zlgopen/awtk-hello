@@ -59,14 +59,15 @@ static ret_t copy_asset_to_file(const char* name, const char* filename) {
   }
 }
 
-static ret_t prepare_database_file(char db_file[MAX_PATH + 1]) {
+static ret_t prepare_database_file(char db_filename[MAX_PATH + 1], 
+    const char* appname, const char* db_name) {
   /*to build filename that is writable for app*/
-  build_user_storage_file_name(db_file, "awtk_hello", "awtk.db");
+  build_user_storage_file_name(db_filename, appname, db_name);
 
-  if (!file_exist(db_file)) {
-    return copy_asset_to_file("awtk.db", db_file);
+  if (!file_exist(db_filename)) {
+    return copy_asset_to_file(db_name, db_filename);
   } else {
-    log_info("database %s exist\n", db_file);
+    log_info("database %s exist\n", db_filename);
     return RET_OK;
   }
 }
@@ -85,15 +86,15 @@ static ret_t on_open_window(void* ctx, event_t* e) {
 static ret_t sqlite_demo(void) {
   int rc = 0;
   sqlite3* db = NULL;
-  char db_file[MAX_PATH + 1];
+  char db_filename[MAX_PATH + 1];
 
-  return_value_if_fail(prepare_database_file(db_file) == RET_OK, RET_FAIL);
+  return_value_if_fail(prepare_database_file(db_filename, "awtk_hello", "awtk.db") == RET_OK, RET_FAIL);
 
-  rc = sqlite3_open(db_file, &db);
+  rc = sqlite3_open(db_filename, &db);
   if (rc) {
     log_warn("Can't open database: %s\n", sqlite3_errmsg(db));
   } else {
-    log_warn("Opened database successfully:%s\n", db_file);
+    log_warn("Opened database successfully:%s\n", db_filename);
   }
   sqlite3_close(db);
 
