@@ -101,7 +101,8 @@ static ret_t sqlite_demo(void) {
   sqlite3* db = NULL;
   char* zErrMsg = NULL;
   char db_filename[MAX_PATH + 1];
-
+  
+  sqlite3_initialize();
   return_value_if_fail(prepare_database_file(db_filename, "awtk_hello", "awtk.db") == RET_OK, RET_FAIL);
 
   rc = sqlite3_open(db_filename, &db);
