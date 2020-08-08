@@ -14,7 +14,9 @@ cd awtk; scons; cd -
 2.获取awtk-hello并编译
 ```
 git clone https://github.com/zlgopen/awtk-hello.git
-cd awtk-hello; scons
+cd awtk-hello
+python scripts/update_res.py all
+scons
 ```
 
 ## 运行
@@ -36,22 +38,21 @@ cd awtk-hello; scons
 
 * 1. src 源文件，每个窗口的事件处理放在独立的文件中。
 
-* 2. assets/raw/fonts 字体文件。
+* 2. design/default/fonts 字体文件。
 
-* 3. assets/raw/images 图片。x1下放正常屏幕密度的图片，x2下放高清屏幕密度的图片。
+* 3. design/default/images 图片。x1下放正常屏幕密度的图片，x2下放高清屏幕密度的图片。
 
-* 4. assets/raw/strings 翻译的字符串。
+* 4. design/default/strings 翻译的字符串。
 
-* 5. assets/raw/styles 主题配置。default.xml为缺省主题，其它为同名窗口的主题。
+* 5. design/default/styles 主题配置。default.xml为缺省主题，其它为同名窗口的主题。
 
-* 6. assets/raw/ui 界面描述数据。
+* 6. design/default/ui 界面描述数据。
 
-* 7. assets/inc 下为用update\_res.py 生成的数据，其在 src/assets.c中引用。
 
 更新资源后请运行:
 
 ```
-./scripts/update_res.py all
+python ./scripts/update_res.py all
 ```
 
 > 本文以Linux/MacOS为例，Windows可能会微妙差异，请酌情处理。

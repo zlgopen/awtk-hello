@@ -22,6 +22,7 @@
 #include "awtk.h"
 #include "window1.h"
 #include "settings.h"
+#include "../res/assets.inc"
 
 #ifndef AWTK_WEB
 #include "sqlite3/sqlite3.h"
