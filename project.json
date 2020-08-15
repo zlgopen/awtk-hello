@@ -6,7 +6,6 @@
   "author": "Li XianJing <xianjimli@hotmail.com>",
   "desc": "hello",
   "copyright": "Guangzhou ZHIYUAN Electronics Co.,Ltd.",
-  "type": "PROJECT_CUSTOM_WIDGET",
   "appType": "APP_MOBILE",
   "hardware": "RT1050",
   "entry": "main",
