@@ -22,11 +22,23 @@
 #include "awtk.h"
 #include "window1.h"
 #include "settings.h"
-#include "../res/assets.inc"
+
+#include "assets.inc"
+
+static ret_t on_open_window(void* ctx, event_t* e) {
+  const char* name = (const char*)ctx;
+  if (tk_str_eq(name, "settings")) {
+    settings_open();
+  } else if (tk_str_eq(name, "window1")) {
+    window1_open();
+  }
+
+  return RET_OK;
+}
+
 
 #ifndef AWTK_WEB
 #include "sqlite3/sqlite3.h"
-#endif /*AWTK_WEB*/
 
 static const char* build_user_storage_file_name(char filename[MAX_PATH + 1], const char* appname,
                                                 const char* name) {
@@ -73,17 +85,6 @@ static ret_t prepare_database_file(char db_filename[MAX_PATH + 1],
   }
 }
 
-static ret_t on_open_window(void* ctx, event_t* e) {
-  const char* name = (const char*)ctx;
-  if (tk_str_eq(name, "settings")) {
-    settings_open();
-  } else if (tk_str_eq(name, "window1")) {
-    window1_open();
-  }
-
-  return RET_OK;
-}
-
 static int dump_table(void* data, int argc, char** argv, char** azColName) {
   int i;
   log_info("%s: ", (const char*)data);
@@ -125,6 +126,7 @@ static ret_t sqlite_demo(void) {
 
   return RET_OK;
 }
+#endif /*AWTK_WEB*/
 
 ret_t application_init() {
   widget_t* win = window_open("main");
