@@ -1,18 +1,39 @@
 {
-  "name":"hello",
-  "version":"1.0",
-  "assets" : "res/assets",
-  "includes" : ["3rd/sqlite3", ".", "src"],
+  "name": "hello",
+  "version": "1.0",
+  "assets": "res/assets",
+  "includes": [
+    "3rd/sqlite3",
+    ".",
+    "src"
+  ],
   "web": {
-    "app_type":"c",
-    "sources":["src/*.c", "src/*.h"]
+    "app_type": "c",
+    "sources": [
+      "src/*.c",
+      "src/*.h"
+    ]
   },
-  "android" : {
-    "app_name":"org.zlgopen.hello",
-    "sources":["src/*.c", "src/*.h", "res/assets.inc", "res/assets/__assets_default.inc", "3rd/sqlite3/sqlite3.c", "3rd/sqlite3/sqlite3.h"]
+  "android": {
+    "app_name": "org.zlgopen.hello",
+    "sources": [
+      "src/*.c",
+      "src/*.h",
+      "res/assets.inc",
+      "res/assets/__assets_default.inc",
+      "3rd/sqlite3/sqlite3.c",
+      "3rd/sqlite3/sqlite3.h"
+    ]
   },
-  "ios" : {
-    "app_name":"org.zlgopen.hello",
-    "sources":["src/*.c", "src/*.h", "res/assets.inc", "res/assets/__assets_default.inc", "3rd/sqlite3/sqlite3.c", "3rd/sqlite3/sqlite3.h"]
+  "ios": {
+    "app_name": "org.zlgopen.hello",
+    "sources": [
+      "src/*.c",
+      "src/*.h",
+      "res/assets.inc",
+      "res/assets/__assets_default.inc",
+      "3rd/sqlite3/sqlite3.c",
+      "3rd/sqlite3/sqlite3.h"
+    ]
   }
 }

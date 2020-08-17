@@ -36,7 +36,6 @@ static ret_t on_open_window(void* ctx, event_t* e) {
   return RET_OK;
 }
 
-
 #ifndef AWTK_WEB
 #include "sqlite3/sqlite3.h"
 
@@ -72,8 +71,8 @@ static ret_t copy_asset_to_file(const char* name, const char* filename) {
   }
 }
 
-static ret_t prepare_database_file(char db_filename[MAX_PATH + 1], 
-    const char* appname, const char* db_name) {
+static ret_t prepare_database_file(char db_filename[MAX_PATH + 1], const char* appname,
+                                   const char* db_name) {
   /*to build filename that is writable for app*/
   build_user_storage_file_name(db_filename, appname, db_name);
 
@@ -97,15 +96,15 @@ static int dump_table(void* data, int argc, char** argv, char** azColName) {
   return 0;
 }
 
-
 static ret_t sqlite_demo(void) {
   int rc = 0;
   sqlite3* db = NULL;
   char* zErrMsg = NULL;
   char db_filename[MAX_PATH + 1];
-  
+
   sqlite3_initialize();
-  return_value_if_fail(prepare_database_file(db_filename, "awtk_hello", "awtk.db") == RET_OK, RET_FAIL);
+  return_value_if_fail(prepare_database_file(db_filename, "awtk_hello", "awtk.db") == RET_OK,
+                       RET_FAIL);
 
   rc = sqlite3_open(db_filename, &db);
   if (rc) {
