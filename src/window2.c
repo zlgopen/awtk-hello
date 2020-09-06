@@ -51,6 +51,8 @@ static ret_t on_multi_gesture(void* ctx, event_t* e) {
   multi_gesture_event_t* evt = multi_gesture_event_cast(e);
   widget_t* win = widget_get_window(WIDGET(e->target));
 
+  info->x = evt->x;
+  info->y = evt->y;
   info->scale += evt->distance;
   info->rotation += evt->rotation;
   info->distance += evt->distance;
