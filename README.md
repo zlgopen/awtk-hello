@@ -44,7 +44,7 @@ scons LINUX_FB=true
 ## 运行
 
 ```
-./bin/hello_awtk
+./bin/demo
 ```
 
 ## 预览UI文件：

@@ -28,7 +28,7 @@
           }
         },
         "lcd": {
-          "width": "800",
+          "width": "320",
           "height": "480",
           "colorDepth": "16bit",
           "colorFormat": "BGR(A)"

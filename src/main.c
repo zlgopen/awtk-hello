@@ -21,6 +21,7 @@
 
 #include "awtk.h"
 #include "window1.h"
+#include "window2.h"
 #include "settings.h"
 
 #include "assets.inc"
@@ -31,6 +32,8 @@ static ret_t on_open_window(void* ctx, event_t* e) {
     settings_open();
   } else if (tk_str_eq(name, "window1")) {
     window1_open();
+  } else if (tk_str_eq(name, "window2")) {
+    window2_open();
   }
 
   return RET_OK;
@@ -132,7 +135,7 @@ ret_t application_init() {
 
   widget_child_on(win, "settings", EVT_CLICK, on_open_window, "settings");
   widget_child_on(win, "vpn", EVT_CLICK, on_open_window, "window1");
-  widget_child_on(win, "dns", EVT_CLICK, on_open_window, "window1");
+  widget_child_on(win, "dns", EVT_CLICK, on_open_window, "window2");
   widget_child_on(win, "ip", EVT_CLICK, on_open_window, "window1");
 
 #ifndef AWTK_WEB
