@@ -28,7 +28,6 @@ typedef struct _multi_gesture_info_t {
   float distance;
   int32_t x;
   int32_t y;
-  int32_t fingers;
 }multi_gesture_info_t;
 
 static multi_gesture_info_t* multi_gesture_info_create(void) {
@@ -56,11 +55,9 @@ static ret_t on_multi_gesture(void* ctx, event_t* e) {
   info->scale += evt->distance;
   info->rotation += evt->rotation;
   info->distance += evt->distance;
-  info->fingers = evt->fingers;
 
    widget_set_child_text_with_int(win, "x", "x:%d", info->x);
    widget_set_child_text_with_int(win, "y", "y:%d", info->y);
-   widget_set_child_text_with_int(win, "fingers", "fingers:%d", info->fingers);
    widget_set_child_text_with_double(win, "scale", "scale:%lf", info->scale);
    widget_set_child_text_with_double(win, "rotation", "rotation:%lf", info->rotation);
    widget_set_child_text_with_double(win, "distance", "distance:%lf", info->distance);
