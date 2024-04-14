@@ -14,5 +14,6 @@ include_directories(
 
 file(GLOB SOURCES src/*.c 3rd/sqlite3/sqlite3.c)
 add_executable(hello ${SOURCES})
-add_definitions(${AWTK_DEFINITIONS})
 target_link_libraries(hello ${AWTK_LIBRARIES})
+set_target_properties(hello PROPERTIES WIN32_EXECUTABLE TRUE)
+
