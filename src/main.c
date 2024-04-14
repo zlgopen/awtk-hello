@@ -24,7 +24,7 @@
 #include "window2.h"
 #include "settings.h"
 
-#include "assets.inc"
+#include "../res/assets.inc"
 
 static ret_t on_open_window(void* ctx, event_t* e) {
   const char* name = (const char*)ctx;
